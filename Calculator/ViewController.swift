@@ -10,6 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    
+    @IBAction func digit(_ sender: UIButton) {
+        if let digit = sender.currentTitle {
+            break
+        }
+    }
+    
+    @IBAction func operation(_ sender: UIButton) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
