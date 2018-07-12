@@ -9,16 +9,42 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
     
-    @IBAction func digit(_ sender: UIButton) {
-        if let digit = sender.currentTitle {
-            break
+    @IBOutlet private weak var display: UILabel!
+    
+    private var userIsInTheMiddleOfTyping = false
+    
+    private var currentValueInDisplay : Double {
+        get {
+            return Double(display.text!)!
+        }
+        set {
+            display.text = String(newValue)
         }
     }
     
-    @IBAction func operation(_ sender: UIButton) {
+    @IBAction private func touchDigit(_ sender: UIButton) {
+        if let digit = sender.currentTitle {
+            if userIsInTheMiddleOfTyping {
+                display.text = display.text! + digit
+            } else {
+                display.text = digit
+            }
+            userIsInTheMiddleOfTyping = true
+        }
+    }
+    
+    @IBAction private func operation(_ sender: UIButton) {
+        userIsInTheMiddleOfTyping = false
+        if let operand = sender.currentTitle {
+            switch operand {
+            case "AC":
+                currentValueInDisplay = 0.0
+            default:
+                break
+            }
+        }
     }
     
     
@@ -26,12 +52,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
