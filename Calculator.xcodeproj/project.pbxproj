@@ -14,6 +14,7 @@
 		658C944320F809C8005A9BF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658C944120F809C8005A9BF4 /* LaunchScreen.storyboard */; };
 		658C944E20F809C8005A9BF4 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658C944D20F809C8005A9BF4 /* CalculatorTests.swift */; };
 		658C945920F809C8005A9BF4 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658C945820F809C8005A9BF4 /* CalculatorUITests.swift */; };
+		658C946720F821E4005A9BF4 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658C946620F821E4005A9BF4 /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		658C945420F809C8005A9BF4 /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		658C945820F809C8005A9BF4 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		658C945A20F809C8005A9BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		658C946620F821E4005A9BF4 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				658C943820F809C8005A9BF4 /* AppDelegate.swift */,
 				658C943A20F809C8005A9BF4 /* ViewController.swift */,
 				658C943C20F809C8005A9BF4 /* Main.storyboard */,
+				658C946620F821E4005A9BF4 /* CalculatorBrain.swift */,
 				658C943F20F809C8005A9BF4 /* Assets.xcassets */,
 				658C944120F809C8005A9BF4 /* LaunchScreen.storyboard */,
 				658C944420F809C8005A9BF4 /* Info.plist */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658C946720F821E4005A9BF4 /* CalculatorBrain.swift in Sources */,
 				658C943B20F809C8005A9BF4 /* ViewController.swift in Sources */,
 				658C943920F809C8005A9BF4 /* AppDelegate.swift in Sources */,
 			);

@@ -35,14 +35,15 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction private func operation(_ sender: UIButton) {
-        userIsInTheMiddleOfTyping = false
-        if let operand = sender.currentTitle {
-            switch operand {
-            case "AC":
-                currentValueInDisplay = 0.0
-            default:
-                break
+    private var brain = CalculatorBrain()
+    
+    @IBAction private func performOperation(_ sender: UIButton) {
+        if userIsInTheMiddleOfTyping {
+            if let operation = sender.currentTitle {
+                brain.setOperand(operand: currentValueInDisplay)
+                brain.performOperation(symbol: operation)
+                userIsInTheMiddleOfTyping = true
+                currentValueInDisplay = brain.result
             }
         }
     }
