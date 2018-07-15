@@ -15,6 +15,7 @@ func multiply (op1: Double, op2: Double) -> Double {
 class CalculatorBrain {
     
     var accumulator = 0.0
+    private var internalProgram = [AnyObject] ()
     
     func setOperand (operand: Double){
         accumulator = operand
@@ -73,9 +74,8 @@ class CalculatorBrain {
         //                default:
         //                    break
         //                }
-        
+        internalProgram.append(symbol as AnyObject) //storing
         if let operation = operations[symbol] {
-            internalProgram.append(operation as AnyObject) //storing
             //accumulator = operation
             switch operation {
             // get the associated value ( let associatedValue)
@@ -104,21 +104,37 @@ class CalculatorBrain {
     }
     
     
-    /*-----------------------------
+    /*---------------------------------------------
      Storing
-     ----------------------------*/
-    private var internalProgram = [AnyObject] ()
+     --------------------------------------------*/
+
     
     typealias PropertyList = AnyObject
     var program: PropertyList {
         get {
-            return internalProgram
+            return internalProgram as AnyObject
         }
         set {
-            
+            clear()
+            if let arrayOfOps = newValue as? [AnyObject] {
+                for op in arrayOfOps {
+                    if let operand = op as? Double {
+                        setOperand(operand: operand)
+                    } else if let operation = op as? String {
+                        performOperation(symbol: operation)
+                    }
+                }
+            }
         }
     }
     
+    private func clear() {
+        accumulator = 0.0
+        pending = nil
+        internalProgram.removeAll()
+    }
+    
+    /*---------------------------------------------*/
     
     var result: Double {
         get {

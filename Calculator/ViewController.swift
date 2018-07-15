@@ -48,6 +48,20 @@ class ViewController: UIViewController {
         }
     }
     
+    /*------------------------- SAVING RESTORE ---------------------------------*/
+    var savedProgram: CalculatorBrain.PropertyList?
+    @IBAction func save() {
+        savedProgram = brain.program
+    }
+    
+    @IBAction func restore() {
+        if savedProgram != nil {
+            brain.program = savedProgram!
+            currentValueInDisplay = brain.result
+        }
+    }
+    /*--------------------------------------------------------------------------*/
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
