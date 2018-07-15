@@ -42,7 +42,7 @@ class ViewController: UIViewController {
             if let operation = sender.currentTitle {
                 brain.setOperand(operand: currentValueInDisplay)
                 brain.performOperation(symbol: operation)
-                userIsInTheMiddleOfTyping = true
+                userIsInTheMiddleOfTyping = false
                 currentValueInDisplay = brain.result
             }
         }
