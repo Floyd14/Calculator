@@ -8,8 +8,24 @@
 
 import UIKit
 
+var calculatorCount = 0
+
 class ViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        calculatorCount += 1
+        print("Loaded a new view (count = \(calculatorCount))")
+        brain.addUnaryOperation(symbol: "Z") { [weak wself = self] in
+            wself?.display.textColor = UIColor.red
+            return sqrt($0)
+        }
+    }
+    
+    deinit {
+        calculatorCount -= 1
+        print("Deleted the view (count = \(calculatorCount))")
+    }
     
     @IBOutlet private weak var display: UILabel!
     
@@ -23,6 +39,9 @@ class ViewController: UIViewController {
             display.text = String(newValue)
         }
     }
+    
+    
+    
     
     @IBAction private func touchDigit(_ sender: UIButton) {
         if let digit = sender.currentTitle {
@@ -61,18 +80,6 @@ class ViewController: UIViewController {
         }
     }
     /*--------------------------------------------------------------------------*/
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
 }
 

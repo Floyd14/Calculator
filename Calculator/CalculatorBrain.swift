@@ -22,7 +22,12 @@ class CalculatorBrain {
         internalProgram.append(operand as AnyObject) //storing
     }
     
-    private let operations: Dictionary<String,Operations> = [
+    // permetto all view di creare unaryOperations
+    func addUnaryOperation(symbol: String, operation: @escaping (Double) -> Double) {
+        operations[symbol] = Operations.UnaryOperation(operation)
+    }
+    
+    private var operations: Dictionary<String,Operations> = [
         "AC": Operations.Constant(0.0),
         "√": Operations.UnaryOperation(sqrt), //i set the associated value
         "±": Operations.UnaryOperation({-$0}),
