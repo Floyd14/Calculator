@@ -6,6 +6,8 @@
 //  Copyright © 2018 Andrea Visini. All rights reserved.
 //
 
+
+// add a comment
 import UIKit
 
 var calculatorCount = 0
